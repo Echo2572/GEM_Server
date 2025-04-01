@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gem.mapper.SongMapper">
+    <!-- 定义 resultMap -->
+    <resultMap id="songResultMap" type="com.gem.entity.Song">
+        <id property="id" column="id"/> <!-- Post 的主键 -->
+        <result property="title" column="title"/>
+        <result property="description" column="description"/>
+        <!-- 关联 Album 对象 -->
+        <association property="album" javaType="com.gem.entity.Album">
+            <id property="id" column="album_id"/> <!-- Album 的主键 -->
+            <result property="title" column="title"/>
+            <result property="company" column="company"/>
+            <result property="kind" column="kind"/>
+            <result property="description" column="description"/>
+            <result property="linguistic" column="linguistic"/>
+            <result property="publishTime" column="publish_time"/>
+        </association>
+    </resultMap>
+
+    <!-- 查询所有 Post 并关联 User -->
+    <select id="getAllSongs" resultMap="songResultMap">
+        SELECT s.id, s.title, s.description, a.id, a.title, a.company, a.kind, a.description, a.linguistic, a.publish_time
+        FROM song s
+        LEFT JOIN album a ON s.album_id = a.id
+    </select>
+</mapper>

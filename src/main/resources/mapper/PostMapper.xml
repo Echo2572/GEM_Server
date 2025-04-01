@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gem.mapper.PostMapper">
+    <!-- 定义 resultMap -->
+    <resultMap id="postResultMap" type="com.gem.entity.Post">
+        <id property="id" column="id"/> <!-- Post 的主键 -->
+        <result property="content" column="content"/>
+        <result property="publishTime" column="publish_time"/>
+        <!-- 关联 User 对象 -->
+        <association property="user" javaType="com.gem.entity.User">
+            <id property="id" column="user_id"/> <!-- User 的主键 -->
+            <result property="username" column="username"/>
+            <result property="pwd" column="pwd"/>
+            <result property="nickname" column="nickname"/>
+            <result property="gender" column="gender"/>
+            <result property="avatar" column="avatar"/>
+            <result property="signature" column="signature"/>
+            <result property="createTime" column="create_time"/>
+        </association>
+    </resultMap>
+
+    <!-- 查询所有 Post 并关联 User -->
+    <select id="getAllPosts" resultMap="postResultMap">
+        SELECT p.id, p.content, p.publish_time, p.user_id, u.username, u.pwd, u.nickname, u.gender, u.avatar, u.signature, u.create_time
+        FROM post p
+        LEFT JOIN user u ON p.user_id = u.id
+    </select>
+</mapper>
