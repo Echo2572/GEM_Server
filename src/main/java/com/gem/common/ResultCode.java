@@ -11,7 +11,9 @@ public enum ResultCode {
     USER_NOT_LOGIN("5002","用户未登录"),
     USER_ACCOUNT_ERROR("5003","账号或密码错误"),
     USER_NOT_EXIST_ERROR("5004","用户不存在"),
-    PARAM_PASSWORD_ERROR("5005","原密码输入错误");
+    PARAM_PASSWORD_ERROR("5005","原密码输入错误"),
+
+    INVALID_ERROR("600", "无效的token");
 
     public String code;
     public String msg;
