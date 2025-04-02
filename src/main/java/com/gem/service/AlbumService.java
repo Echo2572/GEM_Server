@@ -15,4 +15,8 @@ public class AlbumService {
     public List<Album> getAllAlbums(){
         return albumMapper.getAllAlbums();
     }
+
+    public void addAlbum(Album album){
+        albumMapper.insert(album);
+    }
 }

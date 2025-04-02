@@ -15,4 +15,8 @@ public class PostService {
     public List<Post> getAllPosts(){
         return postMapper.getAllPosts();
     }
+
+    public void addPost(Post post){
+        postMapper.insert(post);
+    }
 }

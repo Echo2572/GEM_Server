@@ -8,4 +8,6 @@ import java.util.List;
 @Mapper
 public interface AlbumMapper {
     List<Album> getAllAlbums();
+
+    void insert(Album album);
 }

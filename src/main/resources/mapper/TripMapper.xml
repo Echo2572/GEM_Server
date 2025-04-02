@@ -4,4 +4,9 @@
     <select id="getAllTrips" resultType="com.gem.entity.Trip">
         select * from trip
     </select>
+
+    <insert id="insert" parameterType="com.gem.entity.Trip" useGeneratedKeys="true">
+        insert into trip
+        values(#{id},#{destination},#{tripTime},#{activity},#{description})
+    </insert>
 </mapper>

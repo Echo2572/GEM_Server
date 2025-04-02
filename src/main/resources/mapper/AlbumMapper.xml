@@ -4,4 +4,9 @@
     <select id="getAllAlbums" resultType="com.gem.entity.Album">
         select * from album
     </select>
+
+    <insert id="insert" parameterType="com.gem.entity.Album" useGeneratedKeys="true">
+        insert into album
+        values(#{id},#{title},#{company},#{kind},#{description},#{linguistic},#{publishTime})
+    </insert>
 </mapper>

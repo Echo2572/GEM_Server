@@ -7,5 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface ConcertMapper {
-    public List<Concert> getAllConcerts();
+    List<Concert> getAllConcerts();
+
+    void insert(Concert concert);
 }

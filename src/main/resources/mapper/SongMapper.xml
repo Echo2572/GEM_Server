@@ -24,4 +24,9 @@
         FROM song s
         LEFT JOIN album a ON s.album_id = a.id
     </select>
+
+    <insert id="insert" parameterType="com.gem.entity.Song" useGeneratedKeys="true">
+        insert into song
+        values(#{id},#{title},#{description},#{album.id})
+    </insert>
 </mapper>

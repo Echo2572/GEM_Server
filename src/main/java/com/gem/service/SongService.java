@@ -15,4 +15,8 @@ public class SongService {
     public List<Song> getAllSongs(){
         return songMapper.getAllSongs();
     }
+
+    public void addSong(Song song){
+        songMapper.insert(song);
+    }
 }

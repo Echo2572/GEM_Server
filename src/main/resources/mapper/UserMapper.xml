@@ -2,6 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gem.mapper.UserMapper">
     <select id="getAllUsers" resultType="com.gem.entity.User">
-        select * from user
+        select *
+        from user
     </select>
+
+    <insert id="insert" parameterType="com.gem.entity.User" useGeneratedKeys="true">
+        insert into user
+        values (#{id}, #{username}, #{pwd}, #{nickname}, #{gender}, #{avatar}, #{signature}, #{createTime})
+    </insert>
 </mapper>
