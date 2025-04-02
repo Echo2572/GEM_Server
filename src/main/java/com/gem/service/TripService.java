@@ -15,4 +15,8 @@ public class TripService {
     public List<Trip> getAllTrips(){
         return tripMapper.getAllTrips();
     }
+
+    public void addTrip(Trip trip){
+        tripMapper.insert(trip);
+    }
 }

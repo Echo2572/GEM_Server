@@ -25,4 +25,9 @@
         FROM post p
         LEFT JOIN user u ON p.user_id = u.id
     </select>
+
+    <insert id="insert" parameterType="com.gem.entity.Post" useGeneratedKeys="true">
+        insert into post
+        values(#{id},#{user.id},#{content},#{publishTime})
+    </insert>
 </mapper>

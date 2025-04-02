@@ -4,4 +4,9 @@
     <select id="getAllConcerts" resultType="com.gem.entity.Concert">
         select * from concert
     </select>
+
+    <insert id="insert" parameterType="com.gem.entity.Concert" useGeneratedKeys="true">
+        insert into concert
+        values(#{id},#{title},#{showTime},#{city},#{place},#{cnt},#{description})
+    </insert>
 </mapper>

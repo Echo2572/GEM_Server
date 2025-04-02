@@ -15,4 +15,8 @@ public class ConcertService {
     public List<Concert> getAllConcerts(){
         return concertMapper.getAllConcerts();
     }
+
+    public void addConcert(Concert concert){
+        concertMapper.insert(concert);
+    }
 }

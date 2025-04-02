@@ -7,5 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface PostMapper {
-    public List<Post> getAllPosts();
+    List<Post> getAllPosts();
+
+    void insert(Post post);
 }

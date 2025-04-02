@@ -7,5 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface TripMapper {
-    public List<Trip> getAllTrips();
+    List<Trip> getAllTrips();
+
+    void insert(Trip trip);
 }
