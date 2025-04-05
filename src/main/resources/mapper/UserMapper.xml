@@ -10,4 +10,9 @@
         insert into user
         values (#{id}, #{username}, #{pwd}, #{nickname}, #{gender}, #{avatar}, #{signature}, #{createTime})
     </insert>
+
+    <delete id="deleteById">
+        delete from user
+        where id=#{id}
+    </delete>
 </mapper>

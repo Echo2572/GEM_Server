@@ -25,4 +25,10 @@ public class UserController {
         userService.addUser(user);
         return Result.success();
     }
+
+    @DeleteMapping("/delete/{id}")
+    public Result deleteById(@PathVariable Integer id){
+        userService.deleteById(id);
+        return Result.success();
+    }
 }

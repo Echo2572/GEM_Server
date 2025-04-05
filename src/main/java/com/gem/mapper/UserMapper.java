@@ -10,4 +10,6 @@ public interface UserMapper {
     List<User> getAllUsers();
 
     void insert(User user);
+
+    void deleteById(Integer id);
 }

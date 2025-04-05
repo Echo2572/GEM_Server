@@ -8,10 +8,22 @@ spring:
     username: root
     password: syb22123012
     driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    throw-exception-if-no-handler-found: true  # 遇到 404 也抛异常
+  web:
+    resources:
+      add-mappings: false  # 不让 Spring Boot 静默处理静态资源
 
 mybatis:
     mapper-locations: classpath:mapper/*.xml
     type-aliases-package: com.gem.entity
     configuration:
       map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com.gem.mapper: debug     # 打印你自己的 Mapper 调用
+    org.mybatis: debug        # 打印 MyBatis 内部逻辑
+    org.apache.ibatis: debug  # 打印 SQL 显示
+    jdbc: debug
 
