@@ -31,4 +31,11 @@ public class UserController {
         userService.deleteById(id);
         return Result.success();
     }
+
+    @PostMapping("/update/{id}")
+    public Result updateUser(@PathVariable Integer id, @RequestBody User user){
+        user.setId(id);
+        userService.updateUser(user);
+        return Result.success();
+    }
 }

@@ -15,4 +15,16 @@
         delete from user
         where id=#{id}
     </delete>
+
+    <update id="updateUser" parameterType="com.gem.entity.User">
+        update user
+        <set>
+            <if test="pwd!=null and pwd!=''">pwd=#{pwd},</if>
+            <if test="nickname!=null">nickname=#{nickname},</if>
+            <if test="gender!=null">gender=#{gender},</if>
+            <if test="avatar!=null">avatar=#{avatar},</if>
+            <if test="signature!=null">signature=#{signature}</if>
+        </set>
+        where id=#{id}
+    </update>
 </mapper>
