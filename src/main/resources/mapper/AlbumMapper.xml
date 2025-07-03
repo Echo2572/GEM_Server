@@ -9,4 +9,22 @@
         insert into album
         values(#{id},#{title},#{company},#{kind},#{description},#{linguistic},#{publishTime})
     </insert>
+
+    <delete id="deleteById">
+        delete from album
+        where id=#{id}
+    </delete>
+
+    <update id="updateAlbum" parameterType="com.gem.entity.Album">
+        update album
+        <set>
+            <if test="title!=null">title=#{title},</if>
+            <if test="company!=null">company=#{company},</if>
+            <if test="kind!=null">kind=#{kind},</if>
+            <if test="description!=null">description=#{description},</if>
+            <if test="linguistic!=null">linguistic=#{linguistic},</if>
+            <if test="publishTime!=null">publish_time=#{publishTime},</if>
+        </set>
+        where id=#{id}
+    </update>
 </mapper>

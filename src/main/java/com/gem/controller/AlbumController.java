@@ -25,4 +25,17 @@ public class AlbumController {
         albumService.addAlbum(album);
         return Result.success();
     }
+
+    @DeleteMapping("/delete/{id}")
+    public Result deleteById(@PathVariable Integer id){
+        albumService.deleteById(id);
+        return Result.success();
+    }
+
+    @PostMapping("/update/{id}")
+    public Result updateAlbum(@PathVariable Integer id, @RequestBody Album album) {
+        album.setId(id);
+        albumService.updateAlbum(album);
+        return Result.success();
+    }
 }

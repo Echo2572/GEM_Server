@@ -4,7 +4,7 @@ public class Album {
     private int id;
     private String title;
     private String company;
-    private int kind;  // 录音室专辑1 ;EP2 ;Single:3; Live4
+    private int kind;  // 录音室专辑1 ;EP2 ;Single3; Live4
     private String description;
     private String linguistic;
     private String publishTime;

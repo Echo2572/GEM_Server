@@ -19,4 +19,12 @@ public class AlbumService {
     public void addAlbum(Album album){
         albumMapper.insert(album);
     }
+
+    public void deleteById(Integer id){
+        albumMapper.deleteById(id);
+    }
+
+    public void updateAlbum(Album album){
+        albumMapper.updateAlbum(album);
+    }
 }

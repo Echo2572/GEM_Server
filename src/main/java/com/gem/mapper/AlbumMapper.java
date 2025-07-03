@@ -10,4 +10,8 @@ public interface AlbumMapper {
     List<Album> getAllAlbums();
 
     void insert(Album album);
+
+    void deleteById(Integer id);
+
+    void updateAlbum(Album album);
 }
