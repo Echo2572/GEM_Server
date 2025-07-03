@@ -9,4 +9,22 @@
         insert into concert
         values(#{id},#{title},#{showTime},#{city},#{place},#{cnt},#{description})
     </insert>
+
+    <delete id="deleteById">
+        delete from concert
+        where id=#{id}
+    </delete>
+
+    <update id="updateConcert" parameterType="com.gem.entity.Concert">
+        update concert
+        <set>
+            <if test="title!=null">title=#{title},</if>
+            <if test="showTime!=null">show_time=#{showTime},</if>
+            <if test="city!=null">city=#{city},</if>
+            <if test="place!=null">place=#{place},</if>
+            <if test="cnt!=null">cnt=#{cnt},</if>
+            <if test="description!=null">description=#{description},</if>
+        </set>
+        where id=#{id}
+    </update>
 </mapper>

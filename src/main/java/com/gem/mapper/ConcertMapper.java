@@ -10,4 +10,8 @@ public interface ConcertMapper {
     List<Concert> getAllConcerts();
 
     void insert(Concert concert);
+
+    void deleteById(Integer id);
+
+    void updateConcert(Concert concert);
 }

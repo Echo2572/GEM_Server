@@ -25,4 +25,17 @@ public class ConcertController {
         concertService.addConcert(concert);
         return Result.success();
     }
+
+    @DeleteMapping("/delete/{id}")
+    public Result deleteConcert(@PathVariable Integer id){
+        concertService.deleteConcert(id);
+        return Result.success();
+    }
+
+    @PostMapping("/update/{id}")
+    public Result updateConcert(@PathVariable Integer id, @RequestBody Concert concert){
+        concert.setId(id);
+        concertService.updateConcert(concert);
+        return Result.success();
+    }
 }

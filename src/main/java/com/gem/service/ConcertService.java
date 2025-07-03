@@ -19,4 +19,12 @@ public class ConcertService {
     public void addConcert(Concert concert){
         concertMapper.insert(concert);
     }
+
+    public void deleteConcert(Integer id){
+        concertMapper.deleteById(id);
+    }
+
+    public void updateConcert(Concert concert){
+        concertMapper.updateConcert(concert);
+    }
 }
