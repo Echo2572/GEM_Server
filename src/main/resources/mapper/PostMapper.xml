@@ -41,6 +41,7 @@
         <set>
             <if test="content!=null">content=#{content},</if>
             <if test="publishTime!=null">publish_time=#{publishTime},</if>
+            <if test="user != null and user.id != null">user_id=#{user.id},</if>
         </set>
         where id=#{id}
     </update>
