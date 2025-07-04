@@ -19,4 +19,12 @@ public class SongService {
     public void addSong(Song song){
         songMapper.insert(song);
     }
+
+    public void deleteSong(Integer id){
+        songMapper.deleteById(id);
+    }
+
+    public void updateSong(Song song){
+        songMapper.updateSong(song);
+    }
 }

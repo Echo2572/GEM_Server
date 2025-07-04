@@ -3,30 +3,56 @@
 <mapper namespace="com.gem.mapper.SongMapper">
     <!-- 定义 resultMap -->
     <resultMap id="songResultMap" type="com.gem.entity.Song">
-        <id property="id" column="id"/> <!-- Post 的主键 -->
-        <result property="title" column="title"/>
-        <result property="description" column="description"/>
+        <id property="id" column="song_id"/> <!-- 使用别名 -->
+        <result property="title" column="song_title"/>
+        <result property="description" column="song_description"/>
+
         <!-- 关联 Album 对象 -->
         <association property="album" javaType="com.gem.entity.Album">
-            <id property="id" column="album_id"/> <!-- Album 的主键 -->
-            <result property="title" column="title"/>
-            <result property="company" column="company"/>
-            <result property="kind" column="kind"/>
-            <result property="description" column="description"/>
-            <result property="linguistic" column="linguistic"/>
-            <result property="publishTime" column="publish_time"/>
+            <id property="id" column="album_id"/> <!-- 使用别名 -->
+            <result property="title" column="album_title"/>
+            <result property="company" column="album_company"/>
+            <result property="kind" column="album_kind"/>
+            <result property="description" column="album_description"/>
+            <result property="linguistic" column="album_linguistic"/>
+            <result property="publishTime" column="album_publish_time"/>
         </association>
     </resultMap>
 
-    <!-- 查询所有 Post 并关联 User -->
+    <!-- 查询所有 Song 并关联 Album -->
     <select id="getAllSongs" resultMap="songResultMap">
-        SELECT s.id, s.title, s.description, a.id, a.title, a.company, a.kind, a.description, a.linguistic, a.publish_time
+        SELECT
+            s.id AS song_id,
+            s.title AS song_title,
+            s.description AS song_description,
+            a.id AS album_id,
+            a.title AS album_title,
+            a.company AS album_company,
+            a.kind AS album_kind,
+            a.description AS album_description,
+            a.linguistic AS album_linguistic,
+            a.publish_time AS album_publish_time
         FROM song s
-        LEFT JOIN album a ON s.album_id = a.id
+                 LEFT JOIN album a ON s.album_id = a.id
     </select>
 
     <insert id="insert" parameterType="com.gem.entity.Song" useGeneratedKeys="true">
         insert into song
         values(#{id},#{title},#{description},#{album.id})
     </insert>
+
+    <delete id="deleteById">
+        delete from song
+        where id=#{id}
+    </delete>
+
+    <update id="updateSong" parameterType="com.gem.entity.Song">
+        update song
+        <set>
+            <if test="title!=null">title=#{title},</if>
+            <if test="description!=null">description=#{description},</if>
+            <if test="album != null and album.id != null">album_id=#{album.id},</if>
+        </set>
+        where id=#{id}
+    </update>
 </mapper>

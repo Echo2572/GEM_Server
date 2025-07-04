@@ -10,4 +10,8 @@ public interface SongMapper {
     List<Song> getAllSongs();
 
     void insert(Song song);
+
+    void deleteById(Integer id);
+
+    void updateSong(Song song);
 }
