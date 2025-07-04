@@ -19,4 +19,12 @@ public class TripService {
     public void addTrip(Trip trip){
         tripMapper.insert(trip);
     }
+
+    public void deleteTrip(Integer id){
+        tripMapper.deleteById(id);
+    }
+
+    public void updateTrip(Trip trip){
+        tripMapper.updateTrip(trip);
+    }
 }

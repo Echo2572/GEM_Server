@@ -9,4 +9,20 @@
         insert into trip
         values(#{id},#{destination},#{tripTime},#{activity},#{description})
     </insert>
+
+    <delete id="deleteById">
+        delete from trip
+        where id=#{id}
+    </delete>
+
+    <update id="updateTrip" parameterType="com.gem.entity.Trip">
+        update trip
+        <set>
+            <if test="destination!=null">destination=#{destination},</if>
+            <if test="tripTime!=null">trip_time=#{tripTime},</if>
+            <if test="activity!=null">activity=#{activity},</if>
+            <if test="description!=null">description=#{description},</if>
+        </set>
+        where id=#{id}
+    </update>
 </mapper>

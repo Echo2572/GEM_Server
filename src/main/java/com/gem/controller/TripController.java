@@ -25,4 +25,17 @@ public class TripController {
         tripService.addTrip(trip);
         return Result.success();
     }
+
+    @DeleteMapping("/delete/{id}")
+    public Result deleteTrip(@PathVariable Integer id){
+        tripService.deleteTrip(id);
+        return Result.success();
+    }
+
+    @PostMapping("/update/{id}")
+    public Result updateTrip(@RequestBody Trip trip, @PathVariable Integer id) {
+        trip.setId(id);
+        tripService.updateTrip(trip);
+        return Result.success();
+    }
 }
