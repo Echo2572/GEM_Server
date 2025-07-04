@@ -19,4 +19,12 @@ public class PostService {
     public void addPost(Post post){
         postMapper.insert(post);
     }
+
+    public void deletePost(Integer id){
+        postMapper.deleteById(id);
+    }
+
+    public void updatePost(Post post){
+        postMapper.updatePost(post);
+    }
 }

@@ -10,4 +10,8 @@ public interface PostMapper {
     List<Post> getAllPosts();
 
     void insert(Post post);
+
+    void deleteById(Integer id);
+
+    void updatePost(Post post);
 }

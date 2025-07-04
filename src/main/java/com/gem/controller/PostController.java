@@ -25,4 +25,17 @@ public class PostController {
         postService.addPost(post);
         return Result.success();
     }
+
+    @DeleteMapping("/delete/{id}")
+    public Result deletePost(@PathVariable Integer id){
+        postService.deletePost(id);
+        return Result.success();
+    }
+
+    @PostMapping("/update/{id}")
+    public Result updatePost(@PathVariable Integer id, @RequestBody Post post) {
+        post.setId(id);
+        postService.updatePost(post);
+        return Result.success();
+    }
 }

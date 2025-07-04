@@ -30,4 +30,18 @@
         insert into post
         values(#{id},#{user.id},#{content},#{publishTime})
     </insert>
+
+    <delete id="deleteById">
+        delete from post
+        where id=#{id}
+    </delete>
+
+    <update id="updatePost" parameterType="com.gem.entity.Post">
+        update post
+        <set>
+            <if test="content!=null">content=#{content},</if>
+            <if test="publishTime!=null">publish_time=#{publishTime},</if>
+        </set>
+        where id=#{id}
+    </update>
 </mapper>
